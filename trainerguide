@@ -1,0 +1,26 @@
+    <summary>Enabling Certificates and CPD Hours</summary>
+    <ul>
+      <li>Turn on certificate generation for your courses.</li>
+      <li>Set minimum completion requirements for students to earn certificates.</li>
+      <li>Specify CPD hours which reflect course duration and learning activities.</li>
+      <li>Courses can be aligned with industry and professional body accreditations.</li>
+    </ul>
+  </details>
+  <h1>Earnings & Payment Details</h1>
+  <details>
+    <summary>Commission Structure & Payment</summary>
+    <ul>
+      <li>Trainers earn 20% commission of course sales revenue.</li>
+      <li>Payments are processed monthly by the 15th, provided minimum threshold is met.</li>
+      <li>Payment methods include M-PESA, PayPal, bank transfers, and more.</li>
+      <li>Track your earnings and payments with real-time dashboard analytics.</li>
+    </ul>
+    <p><em>Reference Image: Earnings details (Finndemy Trainer Full Earnings Guide.pdf)</em></p>
+    <img src="https://via.placeholder.com/850x350?text=Trainer+Earnings+Dashboard" alt="Trainer earnings dashboard" />
+  </details>
+</main>
+<footer>
+  Finndemy &copy; 2024 — Empowering Educators | <a href="mailto:info@finndemy.com">info@finndemy.com</a>
+</footer>
+</body>
+</html>
