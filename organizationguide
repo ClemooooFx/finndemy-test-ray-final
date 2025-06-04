@@ -1,0 +1,25 @@
+  <h1>Managing Access and Reporting</h1>
+  <details>
+    <summary>Access Management & Reporting</summary>
+    <p>Admins can assign courses, manage groups, and monitor employee learning progress:</p>
+    <ul>
+      <li>Assign or remove user groups via the Group Admin interface.</li>
+      <li>Track progress and generate compliance reports.</li>
+      <li>Receive customized analytics dashboards based on plan level.</li>
+    </ul>
+  </details>
+  <h1>Support & Contact</h1>
+  <details>
+    <summary>Getting Help</summary>
+    <p>For organizational account help, contact Finndemy support:</p>
+    <ul>
+      <li>Email: <a href="mailto:info@finndemy.com">info@finndemy.com</a></li>
+      <li>Phone: +254719560656</li>
+    </ul>
+  </details>
+</main>
+<footer>
+  Finndemy &copy; 2024 — Your Partner in Workforce Development | <a href="mailto:info@finndemy.com">info@finndemy.com</a>
+</footer>
+</body>
+</html>
