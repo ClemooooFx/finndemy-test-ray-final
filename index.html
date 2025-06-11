@@ -2,104 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Finndemy User Guides - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finndemy - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --regal-blue: #0F3758;
       --bright-green: #1EBA15;
       --gray-light: #f4f6f8;
-      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
+      --white: #ffffff;
+      --dark-gray: #333;
+      --font-family: 'Poppins', sans-serif;
     }
 
     body {
       margin: 0;
       padding: 0;
       font-family: var(--font-family);
-      background-color: var(--gray-light);
-      color: var(--regal-blue);
-    }
-
-    header {
-      background-color: var(--regal-blue);
-      padding: 1rem 2rem;
+      background: linear-gradient(to right, var(--regal-blue), #1a4d7d);
       display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .logo-container {
-      background-color: white;
-      padding: 0.5rem 0.75rem;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: var(--dark-gray);
     }
 
-    .logo-container img {
-      max-height: 50px;
-      width: auto;
-      display: block;
-    }
-
-    .header-title {
-      color: white;
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    main {
-      max-width: 600px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background-color: white;
+    .login-container {
+      background-color: var(--white);
+      padding: 2.5rem 3rem;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       text-align: center;
+      width: 100%;
+      max-width: 450px;
+      box-sizing: border-box;
     }
 
-    main h2 {
+    .logo {
       margin-bottom: 2rem;
-      font-size: 1.75rem;
+    }
+
+    .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    h1 {
       color: var(--regal-blue);
-    }
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .link-btn {
-      background-color: var(--bright-green);
-      color: white;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
       font-weight: 700;
-      font-size: 1.2rem;
-      padding: 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(30, 186, 21, 0.4);
-      transition: transform 0.2s ease, background-color 0.3s ease;
     }
 
-    .link-btn:hover,
-    .link-btn:focus {
+    .input-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 0.6rem;
+      color: var(--regal-blue);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--bright-green);
+      box-shadow: 0 0 0 3px rgba(30, 186, 21, 0.2);
+    }
+
+    .forgot-password {
+      text-align: right;
+      margin-bottom: 1.8rem;
+    }
+
+    .forgot-password a {
+      color: var(--regal-blue);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password a:hover {
+      color: var(--bright-green);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--bright-green);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 15px rgba(30, 186, 21, 0.4);
+    }
+
+    .login-btn:hover {
       background-color: #158a12;
       transform: translateY(-2px);
     }
 
-    footer {
-      margin-top: 4rem;
-      text-align: center;
+    .signup-link {
+      margin-top: 2rem;
       font-size: 0.95rem;
-      padding: 1.5rem;
-      color: var(--regal-blue);
+      color: var(--dark-gray);
+    }
+
+    .signup-link a {
+      color: var(--bright-green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: var(--white);
     }
 
     footer a {
@@ -113,43 +152,44 @@
     }
 
     @media (max-width: 500px) {
-      main {
-        margin: 2rem 1rem;
+      .login-container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
       }
-
-      .header-title {
-        font-size: 1.4rem;
-      }
-
-      main h2 {
-        font-size: 1.4rem;
+      h1 {
+        font-size: 1.7rem;
       }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="logo-container">
-      <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo" />
+  <div class="login-container">
+    <div class="logo">
+      <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo">
     </div>
-    <h1 class="header-title">Welcome to the Finndemy User Guides</h1>
-  </header>
-
-  <main>
-    <h2>Select Your User Guide</h2>
-    <nav class="links" role="navigation" aria-label="User guide navigation links">
-      <a href="userlogin.html" class="link-btn">User Guide (Learners)</a>
-      <a href="trainerguide.html" class="link-btn">Trainer Guide</a>
-      <a href="organizationguide.html" class="link-btn">Organization Guide</a>
-    </nav>
-  </main>
-
+    <h1>Welcome Back!</h1>
+    <form action="#" method="post">
+      <div class="input-group">
+        <label for="username">Username or Email</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <div class="forgot-password">
+        <a href="#">Forgot Password?</a>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="signup-link">
+      Don't have an account? <a href="#">Sign Up</a>
+    </div>
+  </div>
   <footer>
     Finndemy &copy; 2025 &mdash; Empowering Your Learning Journey |
     <a href="mailto:info@finndemy.com">info@finndemy.com</a>
   </footer>
-
 </body>
 </html>
 
