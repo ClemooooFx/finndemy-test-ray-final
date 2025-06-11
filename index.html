@@ -11,87 +11,134 @@
       --gray-light: #f4f6f8;
       --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: var(--font-family);
-      background-color: white;
+      background-color: var(--gray-light);
       color: var(--regal-blue);
-      text-align: center;
     }
+
     header {
       background-color: var(--regal-blue);
-      color: white;
-      padding: 2rem 1rem;
-      font-weight: 700;
-      font-size: 2.5rem;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
     }
+
+    header img {
+      max-width: 160px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
     main {
       max-width: 600px;
       margin: 3rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
-    h1 {
+
+    main h2 {
       margin-bottom: 2rem;
+      font-size: 1.75rem;
+      color: var(--regal-blue);
     }
+
     .links {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
+
     .link-btn {
-      display: block;
       background-color: var(--bright-green);
       color: white;
       font-weight: 700;
-      font-size: 1.3rem;
-      padding: 1rem 0;
+      font-size: 1.2rem;
+      padding: 1rem;
       border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 4px 8px rgba(30, 186, 21, 0.4);
-      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(30, 186, 21, 0.4);
+      transition: transform 0.2s ease, background-color 0.3s ease;
     }
+
     .link-btn:hover,
     .link-btn:focus {
       background-color: #158a12;
+      transform: translateY(-2px);
     }
+
     footer {
-      margin-top: 6rem;
-      font-size: 1rem;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.95rem;
+      padding: 1.5rem;
       color: var(--regal-blue);
-      padding: 1rem;
     }
+
     footer a {
       color: var(--bright-green);
       text-decoration: none;
       font-weight: bold;
     }
+
     footer a:hover {
       text-decoration: underline;
     }
+
     @media (max-width: 500px) {
       main {
         margin: 2rem 1rem;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      main h2 {
+        font-size: 1.4rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>Welcome to the Finndemy User Guides</header>
+
+  <header>
+    <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo" />
+    <h1>Welcome to the Finndemy User Guides</h1>
+  </header>
+
   <main>
-    <h1>Select Your User Guide</h1>
+    <h2>Select Your User Guide</h2>
     <nav class="links" role="navigation" aria-label="User guide navigation links">
       <a href="userlogin.html" class="link-btn">User Guide (Learners)</a>
       <a href="trainerguide.html" class="link-btn">Trainer Guide</a>
       <a href="organizationguide.html" class="link-btn">Organization Guide</a>
     </nav>
   </main>
+
   <footer>
     Finndemy &copy; 2025 &mdash; Empowering Your Learning Journey |
     <a href="mailto:info@finndemy.com">info@finndemy.com</a>
   </footer>
+
 </body>
 </html>
-</body>
-</html>
+
 
 
