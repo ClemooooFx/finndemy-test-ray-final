@@ -26,19 +26,30 @@
 
     header {
       background-color: var(--regal-blue);
-      padding: 2rem 1rem 1rem;
-      text-align: center;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
-    header img {
-      max-width: 160px;
-      height: auto;
-      margin-bottom: 1rem;
+    .logo-container {
+      background-color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    header h1 {
+    .logo-container img {
+      max-height: 50px;
+      width: auto;
+      display: block;
+    }
+
+    .header-title {
       color: white;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 700;
       margin: 0;
     }
@@ -106,8 +117,8 @@
         margin: 2rem 1rem;
       }
 
-      header h1 {
-        font-size: 1.6rem;
+      .header-title {
+        font-size: 1.4rem;
       }
 
       main h2 {
@@ -119,8 +130,10 @@
 <body>
 
   <header>
-    <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo" />
-    <h1>Welcome to the Finndemy User Guides</h1>
+    <div class="logo-container">
+      <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo" />
+    </div>
+    <h1 class="header-title">Welcome to the Finndemy User Guides</h1>
   </header>
 
   <main>
@@ -139,6 +152,7 @@
 
 </body>
 </html>
+
 
 
 
