@@ -1,123 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Finndemy User Guides - Home</title>
- <style>
-   :root {
-     --regal-blue: #0F3758;
-     --bright-green: #1EBA15;
-     --gray-light: #f4f6f8;
-     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   }
-   body {
-     margin: 0;
-     padding: 0;
-     font-family: var(--font-family);
-     background-color: white;
-     color: var(--regal-blue);
-     text-align: center;
-   }
-   header {
-     background-color: var(--regal-blue);
-     color: white;
-     padding: 1.5rem 1rem; /* Adjusted padding */
-     font-weight: 700;
-     font-size: 2.5rem;
-     display: flex;
-     align-items: center; /* Align items vertically in the center */
-     gap: 1.5rem; /* Space between logo and text */
-     justify-content: flex-start; /* Align items to the left */
-   }
-   .logo-container {
-     background-color: white;
-     padding: 5px; /* Add some padding around the logo */
-     border-radius: 5px; /* Optional: Add rounded corners */
-   }
-   .logo {
-     max-width: 100px; /* Further reduce logo size */
-     height: auto;
-   }
-   main {
-     max-width: 600px;
-     margin: 3rem auto;
-   }
-   h1 {
-     margin-bottom: 2rem;
-   }
-   .links {
-     display: flex;
-     flex-direction: column;
-     gap: 1.5rem;
-   }
-   .link-btn {
-     display: block;
-     background-color: var(--bright-green);
-     color: white;
-     font-weight: 700;
-     font-size: 1.3rem;
-     padding: 1rem 0;
-     border-radius: 8px;
-     text-decoration: none;
-     box-shadow: 0 4px 8px rgba(30, 186, 21, 0.4);
-     transition: background-color 0.3s ease;
-   }
-   .link-btn:hover,
-   .link-btn:focus {
-     background-color: #158a12;
-   }
-   footer {
-     margin-top: 6rem;
-     font-size: 1rem;
-     color: var(--regal-blue);
-     padding: 1rem;
-   }
-   footer a {
-     color: var(--bright-green);
-     text-decoration: none;
-     font-weight: bold;
-   }
-   footer a:hover {
-     text-decoration: underline;
-   }
-   @media (max-width: 500px) {
-     header {
-       font-size: 2rem;
-       gap: 1rem; /* Adjusted gap for smaller screens */
-       padding: 1rem; /* Adjusted padding for smaller screens */
-     }
-     .logo {
-       max-width: 80px;
-     }
-     h1 {
-       font-size: 1.8rem;
-     }
-     .link-btn {
-       font-size: 1.1rem;
-     }
-   }
- </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finndemy User Guides - Home</title>
+    <style>
+        :root {
+            --regal-blue: #0F3758;
+            --bright-green: #1EBA15;
+            --gray-light: #f4f6f8;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--gray-light); /* Overall page background */
+            color: var(--regal-blue);
+            line-height: 1.6;
+            min-height: 100vh; /* Ensure body takes full viewport height for sticky sidebar */
+            display: flex; /* Use flex to push footer to bottom of body if it's there, but here sidebar contains it */
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex; /* Use flexbox for main layout */
+            flex-grow: 1; /* Allow container to grow and fill available space */
+        }
+
+        .sidebar {
+            width: 280px; /* Fixed width for sidebar */
+            background-color: var(--white);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding in width */
+            display: flex;
+            flex-direction: column;
+            position: sticky; /* Make sidebar sticky */
+            top: 0;
+            left: 0;
+            height: 100vh; /* Full height of viewport */
+            overflow-y: auto; /* Enable scrolling for long content */
+        }
+
+        .sidebar-logo {
+            text-align: center;
+            margin-bottom: 30px;
+            /* No background here, logo img will have it if needed */
+        }
+
+        .sidebar-logo img {
+            max-width: 150px; /* Adjust logo size */
+            height: auto;
+            background-color: var(--white); /* Ensure logo has white background if it's a PNG */
+            padding: 5px; /* Padding around the logo within its white background */
+            border-radius: 5px; /* Optional: subtle rounded corners for the background */
+            display: block; /* Remove extra space below image */
+            margin: 0 auto; /* Center the image within its container */
+        }
+
+        .sidebar nav {
+            flex-grow: 1; /* Allows nav to push footer to the bottom */
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--regal-blue);
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .sidebar nav ul li a:hover {
+            background-color: var(--gray-light);
+            color: var(--bright-green);
+        }
+
+        /* Active link styling - adjust as needed for the current page */
+        .sidebar nav ul li a.active {
+            background-color: var(--bright-green);
+            color: var(--white);
+            box-shadow: 0 2px 5px rgba(30, 186, 21, 0.2);
+        }
+
+        .content-area {
+            flex-grow: 1; /* Take up remaining space */
+            padding: 40px;
+            background-color: var(--white);
+            margin: 20px; /* Margin around the content block */
+            border-radius: 8px; /* Rounded corners for content block */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for content block */
+            overflow-y: auto; /* Enable scrolling for content area */
+            /* Ensure content area pushes sidebar down on scroll if not sticky */
+            min-height: calc(100vh - 40px); /* Adjust based on margin */
+        }
+
+        .content-area h1 {
+            color: var(--regal-blue);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-align: left; /* Align content title to the left */
+        }
+
+        .content-area h2 {
+            color: var(--bright-green);
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            text-align: left;
+        }
+
+        .content-area p, .content-area ul {
+            text-align: left; /* Align text to the left */
+        }
+
+        .content-area ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0 0; /* Padding top only, will stretch within flex column */
+            color: var(--regal-blue);
+            font-size: 0.9rem;
+            margin-top: auto; /* Push footer to the bottom of the sidebar */
+        }
+
+        footer a {
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 250px; /* Slightly smaller sidebar on medium screens */
+                padding: 15px;
+            }
+            .sidebar-logo img {
+                max-width: 130px;
+            }
+            .content-area {
+                padding: 30px;
+                margin: 15px;
+            }
+            .content-area h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack sidebar and content on small screens */
+            }
+            .sidebar {
+                width: 100%; /* Full width sidebar */
+                height: auto; /* Auto height */
+                position: relative; /* Remove sticky position */
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                padding-bottom: 10px; /* Adjust padding */
+                overflow-y: visible; /* Don't hide content on small screens if it overflows */
+            }
+            .sidebar-logo {
+                margin-bottom: 15px;
+            }
+            .sidebar nav ul {
+                display: flex; /* Make nav items horizontal on small screens */
+                flex-wrap: wrap; /* Allow wrapping */
+                justify-content: center;
+                gap: 10px; /* Spacing between horizontal links */
+            }
+            .sidebar nav ul li {
+                margin-bottom: 0;
+            }
+            .sidebar nav ul li a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            .content-area {
+                margin: 15px; /* Adjust margin */
+                padding: 20px;
+                min-height: auto; /* Reset min-height for stacked layout */
+            }
+            .content-area h1 {
+                font-size: 2rem;
+                text-align: center; /* Center title when stacked */
+            }
+            .content-area h2 {
+                font-size: 1.5rem;
+            }
+            footer {
+                padding: 20px;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar-logo img {
+                max-width: 120px;
+            }
+            .sidebar nav ul {
+                flex-direction: column; /* Stack nav items again on very small screens */
+                align-items: center; /* Center them */
+            }
+            .sidebar nav ul li a {
+                padding: 10px 15px;
+            }
+            .content-area {
+                margin: 10px;
+                padding: 15px;
+            }
+            .content-area h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+    </style>
 </head>
 <body>
- <header>
-   <div class="logo-container">
-     <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo" class="logo">
-   </div>
-   Welcome to the Finndemy User Guides
- </header>
- <main>
-   <h1>Select Your User Guide</h1>
-   <nav class="links" role="navigation" aria-label="User guide navigation links">
-     <a href="userlogin.html" class="link-btn">User Guide (Learners)</a>
-     <a href="trainerguide.html" class="link-btn">Trainer Guide</a>
-     <a href="organizationguide.html" class="link-btn">Organization Guide</a>
-   </nav>
- </main>
- <footer>
-   Finndemy &copy; 2025 &mdash; Empowering Your Learning Journey |
-   <a href="mailto:info@finndemy.com">info@finndemy.com</a>
- </footer>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Introduction</a></li>
+                    <li><a href="userlogin.html">User Guide (Learners)</a></li>
+                    <li><a href="trainerguide.html">Trainer Guide</a></li>
+                    <li><a href="organizationguide.html">Organization Guide</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Troubleshooting</a></li>
+                </ul>
+            </nav>
+            <footer>
+                Finndemy &copy; 2025 &mdash; Empowering Your Learning Journey |
+                <a href="mailto:info@finndemy.com">info@finndemy.com</a>
+            </footer>
+        </aside>
+
+        <main class="content-area">
+            <h1>Welcome to the Finndemy User Guides</h1>
+            <p>This portal provides comprehensive documentation and guides for all Finndemy users, including learners, trainers, and organizational administrators. Select a guide from the left sidebar to get started.</p>
+
+            <h2>Getting Started with Finndemy</h2>
+            <p>Whether you're a new learner or an experienced trainer, our guides are designed to help you navigate the Finndemy platform with ease and maximize your experience.</p>
+            <ul>
+                <li><strong>For Learners:</strong> Discover how to enroll in courses, track your progress, access learning resources, and manage your profile.</li>
+                <li><strong>For Trainers:</strong> Learn to create and manage courses, monitor learner performance, utilize our robust teaching tools, and schedule sessions.</li>
+                <li><strong>For Organizations:</strong> Understand how to set up your organizational structure, manage users, assign roles, and gain valuable insights into platform usage and analytics.</li>
+                <li><strong>For Developers:</strong> (Placeholder - if you have an API or integration docs) Explore our API documentation for seamless integration with your existing systems.</li>
+            </ul>
+
+            <h2>Need Further Assistance?</h2>
+            <p>If you cannot find the information you're looking for within these guides, please don't hesitate to reach out to our dedicated support team. You can contact us directly via email:</p>
+            <p><a href="mailto:support@finndemy.com">support@finndemy.com</a></p>
+            <p>We are committed to empowering your learning journey and ensuring a smooth experience on Finndemy.</p>
+        </main>
+    </div>
 </body>
 </html>
 
