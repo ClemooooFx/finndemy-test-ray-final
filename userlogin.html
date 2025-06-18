@@ -1,449 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Finndemy User Guide - Learners</title>
-<style>
-  :root {
-    --regal-blue: #0F3758;
-    --bright-green: #1EBA15;
-    --gray-light: #f4f6f8;
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finndemy User Guide - Learners</title>
+    <style>
+        :root {
+            --regal-blue: #0F3758;
+            --bright-green: #1EBA15;
+            --gray-light: #f4f6f8;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-  * {
-    box-sizing: border-box;
-  }
+        * {
+            box-sizing: border-box;
+        }
 
-  body {
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-    background-color: var(--gray-light);
-    color: var(--regal-blue);
-  }
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--gray-light);
+            color: var(--regal-blue);
+        }
 
-  header {
-    background-color: var(--regal-blue);
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+        header {
+            background-color: var(--regal-blue);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-  .logo-container {
-    background-color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+        .logo-container {
+            background-color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-  .logo-container img {
-    max-height: 50px;
-    width: auto;
-    display: block;
-  }
+        .logo-container img {
+            max-height: 50px;
+            width: auto;
+            display: block;
+        }
 
-  .header-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 0;
-  }
+        .header-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
 
-  main {
-    max-width: 800px;
-    margin: 3rem auto;
-    background: white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    padding: 2rem;
-  }
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+        }
 
-  h1 {
-    color: var(--bright-green);
-    border-bottom: 3px solid var(--bright-green);
-    padding-bottom: 0.3rem;
-    font-size: 1.75rem;
-  }
+        h1 {
+            color: var(--bright-green);
+            border-bottom: 3px solid var(--bright-green);
+            padding-bottom: 0.3rem;
+            font-size: 1.75rem;
+        }
 
-  h3 {
-    margin-top: 1.5rem;
-    color: var(--regal-blue);
-  }
+        h3 {
+            margin-top: 1.5rem;
+            color: var(--regal-blue);
+        }
 
-  details {
-    background: #e6f1e9;
-    border: 1px solid var(--bright-green);
-    border-radius: 6px;
-    padding: 0.8rem 1rem;
-    margin-bottom: 1rem;
-  }
+        details {
+            background: #e6f1e9;
+            border: 1px solid var(--bright-green);
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+        }
 
-  summary {
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--regal-blue);
-  }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--regal-blue);
+            /* New: Use flexbox for alignment of arrow and text */
+            display: flex; 
+            align-items: center; /* Vertically align items */
+            list-style: none; /* Remove default summary marker */
+        }
 
-  p, ul {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
+        /* New: Hide default Webkit arrow */
+        summary::-webkit-details-marker {
+            display: none; 
+        }
 
-  ul {
-    margin-left: 1.5rem;
-  }
+        /* New: Custom arrow icon */
+        summary::before {
+            content: '►'; /* Triangle character */
+            margin-right: 0.8rem; /* Space between arrow and text */
+            color: var(--bright-green); /* Color the arrow green */
+            transition: transform 0.2s ease-in-out; /* Smooth rotation */
+        }
 
-  .guide-img {
-    width: 100%;
-    max-width: 700px;
-    border-radius: 6px;
-    margin: 1rem 0;
-    display: block;
-  }
+        /* New: Rotate arrow when details is open */
+        details[open] summary::before {
+            transform: rotate(90deg); /* Rotate arrow when open */
+        }
 
-  a {
-    color: var(--bright-green);
-    text-decoration: none;
-    font-weight: 600;
-  }  
-  
+        /* Style the link inside the summary to make it look like part of the summary */
+        summary a {
+            color: var(--regal-blue); /* Inherit the summary color */
+            text-decoration: none; /* Remove underline by default */
+            font-weight: bold; /* Keep it bold */
+            /* Removed display: block; from here as summary itself is flex */
+        }   
 
-  a:hover {
-    text-decoration: underline;
-  }
+        summary a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
 
-  footer {
-    margin-top: 4rem;
-    text-align: center;
-    font-size: 0.95rem;
-    padding: 1.5rem;
-    color: var(--regal-blue);
-  }
+        p, ul {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
 
-  footer a {
-    color: var(--bright-green);
-    text-decoration: none;
-    font-weight: bold;
-  }
+        ul {
+            margin-left: 1.5rem;
+        }
 
-  footer a:hover {
-    text-decoration: underline;
-  }
+        .guide-img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 6px;
+            margin: 1rem 0;
+            display: block;
+        }
 
-  @media (max-width: 500px) {
-    main {
-      margin: 2rem 1rem;
-    }
+        /* Standard link styling outside of summary */
+        a {
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: 600;
+        }   
 
-    .header-title {
-      font-size: 1.4rem;
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    h1 {
-      font-size: 1.4rem;
-    }
-  }
-</style>
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.95rem;
+            padding: 1.5rem;
+            color: var(--regal-blue);
+        }
+
+        footer a {
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 500px) {
+            main {
+                margin: 2rem 1rem;
+            }
+
+            .header-title {
+                font-size: 1.4rem;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div class="logo-container">
-    <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo" />
-  </div>
-  <header class="header-title">Finndemy User Guide - Learners</header>
-</header>
-<main>
-  <h1>Account Registration & Login</h1>
+    <header>
+        <div class="logo-container">
+            <img src="https://finndemy.com/wp-content/uploads/2025/05/erasebg-transformed-6.png" alt="Finndemy Logo" />
+        </div>
+        <header class="header-title">Finndemy User Guide - Learners</header>
+    </header>
+    <main>
+        <h1>Account Registration & Login</h1>
 
-  <details>
-  <summary>How to Create Your Finndemy Account</summary>
+        <details open id="how-to-create-your-finndemy-account">
+            <summary><a href="#how-to-create-your-finndemy-account">How to Create Your Finndemy Account</a></summary>
 
-  <h3>Step 1: Access the Registration Page</h3>
-  <ul>
-    <li>Navigate to <a href="https://finndemy.com" target="_blank">finndemy.com</a></li>
-    <li>Click on the <strong>"Sign Up"</strong> button at the top right</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture1.png" alt="Sign Up button" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <h3>Step 1: Access the Registration Page</h3>
+            <ul>
+                <li>Navigate to <a href="https://finndemy.com" target="_blank">finndemy.com</a></li>
+                <li>Click on the <strong>"Sign Up"</strong> button at the top right</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture1.png" alt="Sign Up button" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <h3>Step 2: Fill in Your Information</h3>
-  <ul>
-    <li><strong>Username:</strong> Choose a unique username (cannot be changed later)</li>
-    <li><strong>Email Address:</strong> Use a valid email for account verification</li>
-    <li><strong>Password:</strong> Create a strong password (min 8 characters)</li>
-    <li><strong>First Name and Last Name:</strong> Enter your real name for certificates</li>
-    <li><strong>Accept the privacy policy:</strong> Tick the checkbox</li>
-    <li>Click <strong>“Complete Sign Up”</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture2.png" alt="Registration form part 1" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture3.png" alt="Registration form part 2" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <h3>Step 2: Fill in Your Information</h3>
+            <ul>
+                <li><strong>Username:</strong> Choose a unique username (cannot be changed later)</li>
+                <li><strong>Email Address:</strong> Use a valid email for account verification</li>
+                <li><strong>Password:</strong> Create a strong password (min 8 characters)</li>
+                <li><strong>First Name and Last Name:</strong> Enter your real name for certificates</li>
+                <li><strong>Accept the privacy policy:</strong> Tick the checkbox</li>
+                <li>Click <strong>“Complete Sign Up”</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture2.png" alt="Registration form part 1" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture3.png" alt="Registration form part 2" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <h3>Step 3: Verify Your Email</h3>
-  <ul>
-    <li>Check your email inbox or spam folder for a verification message</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture4.png" alt="Email verification inbox" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-  <ul>
-    <li>Click the verification link in the email</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture5.png" alt="Click verification link" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture6.png" alt="Activate account prompt" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-  <ul>
-    <li>Click <strong>“Activate”</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture7.png" alt="Account activation successful" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-  <p><strong>✅ Your account was activated successfully!</strong> You can now log in using the username and password you provided.</p>
+            <h3>Step 3: Verify Your Email</h3>
+            <ul>
+                <li>Check your email inbox or spam folder for a verification message</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture4.png" alt="Email verification inbox" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Click the verification link in the email</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture5.png" alt="Click verification link" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture6.png" alt="Activate account prompt" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Click <strong>“Activate”</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture7.png" alt="Account activation successful" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <p><strong>✅ Your account was activated successfully!</strong> You can now log in using the username and password you provided.</p>
+        </details>
 
-</details>
+        <details id="how-to-log-in">
+            <summary><a href="#how-to-log-in">How to Log in</a></summary>
 
+            <ul>
+                <li>Go to <a href="https://finndemy.com" target="_blank">finndemy.com</a></li>
+                <li>On the top right corner, click <strong>“Log In”</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture28.png" alt="Login button view" class="guide-img" />
 
-  <details>
-  <summary>How to Log in</summary>
+            <ul>
+                <li>Enter your registered username and password</li>
+                <li>Tick the <em>“Remember Me”</em> box if using a trusted device for future auto-login</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture29.png" alt="Login form fields" class="guide-img" />
 
-  <ul>
-    <li>Go to <a href="https://finndemy.com" target="_blank">finndemy.com</a></li>
-    <li>On the top right corner, click <strong>“Log In”</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture28.png" alt="Login button view" class="guide-img" />
+            <ul>
+                <li>Click <strong>“Login”</strong></li>
+                <li>You have now successfully logged in to your Finndemy account</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture30.png" alt="Successful login dashboard" class="guide-img" />
+        </details>
 
-  <ul>
-    <li>Enter your registered username and password</li>
-    <li>Tick the <em>“Remember Me”</em> box if using a trusted device for future auto-login</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture29.png" alt="Login form fields" class="guide-img" />
+        <details id="forgot-password-how-to-reset">
+            <summary><a href="#forgot-password-how-to-reset">Forgot Password? How to Reset</a></summary>
+            <ul>
+                <li>Go to <a href="https://finndemy.com" target="_blank">finndemy.com</a></li>
+                <li>Click “Log In” in the top right area</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture34.png" alt="Login button top right" class="guide-img" />
+            <ul>
+                <li>Enter your email address and password and click <strong>Login</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture35.png" alt="Login form" class="guide-img" />
+            <ul>
+                <li>If your password is incorrect, click on <strong>“Lost your Password”</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture36.png" alt="Lost your password link" class="guide-img" />
+            <ul>
+                <li>On the next page, enter the email you used to sign up and click <strong>“Reset Password”</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture37.png" alt="Enter email to reset password" class="guide-img" />
+            <ul>
+                <li>You will see a confirmation that the password reset email has been sent. Check your email.</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture38.png" alt="Password reset confirmation" class="guide-img" />
+            <ul>
+                <li>Check among your most recent emails.</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture39.png" alt="Check email inbox" class="guide-img" />
+            <ul>
+                <li>Open the password reset email and click the <strong>“Click Here”</strong> link</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture40.png" alt="Email with reset link" class="guide-img" />
+            <ul>
+                <li>You will be redirected to a page asking you to reset your password</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture41.png" alt="Reset password page" class="guide-img" />
+            <ul>
+                <li>Enter a new, strong password you will remember and click <strong>Save</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture42.png" alt="Enter new password" class="guide-img" />
+            <ul>
+                <li>Your browser may prompt you to save your password. If you're on a trusted device, you may click “Save”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture43.png" alt="Browser save password prompt" class="guide-img" />
+            <ul>
+                <li>You’ll see a confirmation that your password has been successfully reset. You can now log in with your updated credentials.</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture44.png" alt="Password reset success message" class="guide-img" />
+        </details>
 
-  <ul>
-    <li>Click <strong>“Login”</strong></li>
-    <li>You have now successfully logged in to your Finndemy account</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture30.png" alt="Successful login dashboard" class="guide-img" />
+        <details id="how-to-log-out">
+            <summary><a href="#how-to-log-out">How to Log Out</a></summary>
+            <ul>
+                <li>Once you are logged in, go to the top right corner of the page.</li>
+                <li>Below the support email, your username will appear with a “Logout” icon.</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture31.png" alt="Logout icon view" class="guide-img" />
+            <ul>
+                <li>Click <strong>“Log Out”</strong>. You will be signed out and redirected to the Finndemy homepage (<a href="https://finndemy.com" target="_blank">finndemy.com</a>).</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture32.png" alt="Redirect to homepage after logout" class="guide-img" />
+        </details>
 
-</details>
+        <h1>Course Enrollment & Management</h1>
 
+        <details id="how-to-enroll-in-a-course">
+            <summary><a href="#how-to-enroll-in-a-course">How to Enroll in a Course</a></summary>
 
+            <h3>Browse Courses</h3>
+            <ul>
+                <li>Visit the "Explore Courses" section from the main menu</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture8.png" alt="Explore Courses menu" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <details>
-  <summary>Forgot Password? How to Reset</summary>
-  <ul>
-    <li>Go to <a href="https://finndemy.com" target="_blank">finndemy.com</a></li>
-    <li>Click “Log In” in the top right area</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture34.png" alt="Login button top right" class="guide-img" />
-  <ul>
-    <li>Enter your email address and password and click <strong>Login</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture35.png" alt="Login form" class="guide-img" />
-  <ul>
-    <li>If your password is incorrect, click on <strong>“Lost your Password”</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture36.png" alt="Lost your password link" class="guide-img" />
-  <ul>
-    <li>On the next page, enter the email you used to sign up and click <strong>“Reset Password”</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture37.png" alt="Enter email to reset password" class="guide-img" />
-  <ul>
-    <li>You will see a confirmation that the password reset email has been sent. Check your email.</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture38.png" alt="Password reset confirmation" class="guide-img" />
-  <ul>
-    <li>Check among your most recent emails.</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture39.png" alt="Check email inbox" class="guide-img" />
-  <ul>
-    <li>Open the password reset email and click the <strong>“Click Here”</strong> link</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture40.png" alt="Email with reset link" class="guide-img" />
-  <ul>
-    <li>You will be redirected to a page asking you to reset your password</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture41.png" alt="Reset password page" class="guide-img" />
-  <ul>
-    <li>Enter a new, strong password you will remember and click <strong>Save</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture42.png" alt="Enter new password" class="guide-img" />
-  <ul>
-    <li>Your browser may prompt you to save your password. If you're on a trusted device, you may click “Save”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture43.png" alt="Browser save password prompt" class="guide-img" />
-  <ul>
-    <li>You’ll see a confirmation that your password has been successfully reset. You can now log in with your updated credentials.</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture44.png" alt="Password reset success message" class="guide-img" />
-</details>
+            <ul>
+                <li>Use the search bar and type the name of the course (optional)</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture10.png" alt="Search bar view" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
+            <ul>
+                <li>From the available courses, choose any that piques your interest by clicking “Enroll Now”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture11.png" alt="Enroll Now button" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <details>
-  <summary>How to Log Out</summary>
-  <ul>
-    <li>Once you are logged in, go to the top right corner of the page.</li>
-    <li>Below the support email, your username will appear with a “Logout” icon.</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture31.png" alt="Logout icon view" class="guide-img" />
-  <ul>
-    <li>Click <strong>“Log Out”</strong>. You will be signed out and redirected to the Finndemy homepage (<a href="https://finndemy.com" target="_blank">finndemy.com</a>).</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture32.png" alt="Redirect to homepage after logout" class="guide-img" />
-</details>
+            <h3>Course Information</h3>
+            <ul>
+                <li>Course Description: Overview of what you'll learn</li>
+                <li>Key Topics: Key areas that will be covered in the course</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture12.png" alt="Course info section" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
+            <h3>Enrollment Process</h3>
+            <ul>
+                <li>Click “Enroll in this course”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture13.png" alt="Enroll in course" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <details>
-  <summary>How to Enroll in a Course</summary>
+            <ul>
+                <li>Review course details and pricing</li>
+                <li>Click “Add to cart”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture14.png" alt="Add to cart" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <h3>Browse Courses</h3>
-  <ul>
-    <li>Visit the "Explore Courses" section from the main menu</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture8.png" alt="Explore Courses menu" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>A pop-up will show course added to cart, click “View cart”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture15.png" alt="View cart popup" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <ul>
-    <li>Use the search bar and type the name of the course (optional)</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture10.png" alt="Search bar view" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Review cart content, apply coupon if available</li>
+                <li>Click “Proceed to Checkout”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture16.png" alt="Proceed to checkout" class="guide-img" />
 
-  <ul>
-    <li>From the available courses, choose any that piques your interest by clicking “Enroll Now”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture11.png" alt="Enroll Now button" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Enter billing details and select payment method</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture17.png" alt="Billing details" class="guide-img" />
 
-  <h3>Course Information</h3>
-  <ul>
-    <li>Course Description: Overview of what you'll learn</li>
-    <li>Key Topics: Key areas that will be covered in the course</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture12.png" alt="Course info section" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Agree to the terms and click “Place Order”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture18.png" alt="Place order" class="guide-img" />
 
-  <h3>Enrollment Process</h3>
-  <ul>
-    <li>Click “Enroll in this course”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture13.png" alt="Enroll in course" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Choose your preferred payment method and complete the secure checkout</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture19.png" alt="Payment options" class="guide-img" />
 
-  <ul>
-    <li>Review course details and pricing</li>
-    <li>Click “Add to cart”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture14.png" alt="Add to cart" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>If using Mpesa, a prompt will appear — enter your PIN and tap “Send”</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture21.png" alt="Mpesa prompt" class="guide-img" />
 
-  <ul>
-    <li>A pop-up will show course added to cart, click “View cart”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture15.png" alt="View cart popup" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>If prompt doesn't show, click “Resend Payment Prompt” or follow additional instructions</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture22.png" alt="Resend payment prompt" class="guide-img" />
 
-  <ul>
-    <li>Review cart content, apply coupon if available</li>
-    <li>Click “Proceed to Checkout”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture16.png" alt="Proceed to checkout" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>After successful payment, click Proceed</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture23.png" alt="Proceed after payment" class="guide-img" />
 
-  <ul>
-    <li>Enter billing details and select payment method</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture17.png" alt="Billing details" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Receive enrollment confirmation email</li>
+                <li>Access course materials immediately after payment</li>
+            </ul>
+        </details>
 
-  <ul>
-    <li>Agree to the terms and click “Place Order”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture18.png" alt="Place order" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+        <details id="your-learning-dashboard">
+            <summary><a href="#your-learning-dashboard">Your Learning Dashboard</a></summary>
+            <p>Track your progress, access certificates, and interact with the learning community from your dashboard.</p>
+        </details>
 
-  <ul>
-    <li>Choose your preferred payment method and complete the secure checkout</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture19.png" alt="Payment options" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+        <details id="how-to-view-and-edit-your-user-profile">
+            <summary><a href="#how-to-view-and-edit-your-user-profile">How to View and Edit Your User Profile</a></summary>
+            <ul>
+                <li>
+                    After logging in, click your profile icon on the top right<br />
+                    <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture45.png" alt="Profile Icon" class="guide-img" />
+                </li>
+                <li>
+                    You’ll see a summary of your progress. Click “Edit Profile” to update your details<br />
+                    <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture46.png" alt="Edit Profile Option" class="guide-img" />
+                </li>
+                <li>
+                    Change your name, profile photo, or cover image<br />
+                    <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture47.png" alt="Edit Name and Photo" class="guide-img" />
+                </li>
+                <li>
+                    You can also update your password from this section<br />
+                    <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture48.png" alt="Change Password" class="guide-img" />
+                </li>
+            </ul>
+        </details>
+        
+        <details id="how-to-give-feedback-on-a-course">
+            <summary><a href="#how-to-give-feedback-on-a-course">How to Give Feedback on a Course</a></summary>
 
-  <ul>
-    <li>If using Mpesa, a prompt will appear — enter your PIN and tap “Send”</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture21.png" alt="Mpesa prompt" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>After clicking on any course, scroll to the bottom of the course page to find the <strong>“Leave a Reply”</strong> section. From here, you can leave a comment about the course.</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture24.png" alt="Leave a Reply section" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <ul>
-    <li>If prompt doesn't show, click “Resend Payment Prompt” or follow additional instructions</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture22.png" alt="Resend payment prompt" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Once you're done typing, click on <strong>“Post Comment”</strong></li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture25.png" alt="Post Comment button" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <ul>
-    <li>After successful payment, click Proceed</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture23.png" alt="Proceed after payment" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
+            <ul>
+                <li>Your comment will now be awaiting moderation. A preview is shown immediately; the comment becomes visible once approved.</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture26.png" alt="Comment awaiting moderation" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-  <ul>
-    <li>Receive enrollment confirmation email</li>
-    <li>Access course materials immediately after payment</li>
-  </ul>
+            <ul>
+                <li>Alternatively, if you have enrolled in the course, go to the <strong>“Reviews”</strong> tab to give structured feedback.</li>
+            </ul>
+            <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture27.png" alt="Course reviews tab" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
 
-</details>
-
-
-  <details>
-    <summary>Your Learning Dashboard</summary>
-    <p>Track your progress, access certificates, and interact with the learning community from your dashboard.</p>
-  </details>
-
-  <details>
-  <summary>How to View and Edit Your User Profile</summary>
-  <ul>
-    <li>
-      After logging in, click your profile icon on the top right<br />
-      <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture45.png" alt="Profile Icon" class="guide-img" />
-    </li>
-    <li>
-      You’ll see a summary of your progress. Click “Edit Profile” to update your details<br />
-      <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture46.png" alt="Edit Profile Option" class="guide-img" />
-    </li>
-    <li>
-      Change your name, profile photo, or cover image<br />
-      <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture47.png" alt="Edit Name and Photo" class="guide-img" />
-    </li>
-    <li>
-      You can also update your password from this section<br />
-      <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture48.png" alt="Change Password" class="guide-img" />
-    </li>
-  </ul>
-</details>
-
-  
-  <details>
-  <summary>How to Give Feedback on a Course</summary>
-
-  <ul>
-    <li>After clicking on any course, scroll to the bottom of the course page to find the <strong>“Leave a Reply”</strong> section. From here, you can leave a comment about the course.</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture24.png" alt="Leave a Reply section" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-
-  <ul>
-    <li>Once you're done typing, click on <strong>“Post Comment”</strong></li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture25.png" alt="Post Comment button" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-
-  <ul>
-    <li>Your comment will now be awaiting moderation. A preview is shown immediately; the comment becomes visible once approved.</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture26.png" alt="Comment awaiting moderation" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-
-  <ul>
-    <li>Alternatively, if you have enrolled in the course, go to the <strong>“Reviews”</strong> tab to give structured feedback.</li>
-  </ul>
-  <img src="https://raw.githubusercontent.com/ClemooooFx/Images/main/Picture27.png" alt="Course reviews tab" style="max-width: 100%; border-radius: 6px; margin: 1rem 0;" />
-
-  <ul>
-    <li>🔒 <strong>Note:</strong> You must be enrolled and have started the course to be eligible to submit a review.</li>
-  </ul>
-
-</details>
-
-
-  
-
-
-</main>
-<footer>
-  © 2025 Finndemy | Support: <a href="mailto:info@finndemy.com">info@finndemy.com</a>
-</footer>
+            <ul>
+                <li>🔒 <strong>Note:</strong> You must be enrolled and have started the course to be eligible to submit a review.</li>
+            </ul>
+        </details>
+    </main>
+    <footer>
+        © 2025 Finndemy | Support: <a href="mailto:info@finndemy.com">info@finndemy.com</a>
+    </footer>
 </body>
 </html>
 
