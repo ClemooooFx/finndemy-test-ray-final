@@ -60,8 +60,34 @@
             background: white;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
-            padding: 2rem;
-        }
+            padding: 2rem;        position: relative; /* Added for positioning the back button relative to main */
+    }
+
+    /* New styles for the back button in main content */
+    .back-button-top {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--bright-green);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background-color 0.2s ease;
+        margin-bottom: 1.5rem; /* Space between button and h1 */
+    }
+
+    .back-button-top:hover {
+        background-color: #1a9c12; /* Slightly darker green on hover */
+        text-decoration: none;
+    }
+
+    .back-button-icon {
+        font-size: 1.1rem;
+    }
+
 
         h1 {
             color: var(--bright-green);
@@ -195,6 +221,9 @@
         <header class="header-title">Finndemy User Guide - Learners</header>
     </header>
     <main>
+    <a href="index.html" class="back-button-top">
+        <span class="back-button-icon">◀</span> Back to Guide Selection
+    </a>
         <h1>Account Registration & Login</h1>
 
         <details id="how-to-create-your-finndemy-account">
