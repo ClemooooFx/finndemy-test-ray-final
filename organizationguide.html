@@ -84,11 +84,45 @@
   }
 
   summary {
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--regal-blue);
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--regal-blue);
+            /* New: Use flexbox for alignment of arrow and text */
+            display: flex; 
+            align-items: center; /* Vertically align items */
+            list-style: none; /* Remove default summary marker */
   }
+
+  /* New: Hide default Webkit arrow */
+  summary::-webkit-details-marker {
+            display: none; 
+  }
+
+  /* New: Custom arrow icon */
+  summary::before {
+            content: '▶'; /* Triangle character */
+            margin-right: 0.8rem; /* Space between arrow and text */
+            color: var(--bright-green); /* Color the arrow green */
+            transition: transform 0.2s ease-in-out; /* Smooth rotation */
+  }
+
+  /* New: Rotate arrow when details is open */
+  details[open] summary::before {
+            transform: rotate(90deg); /* Rotate arrow when open */
+  }
+
+  /* Style the link inside the summary to make it look like part of the summary */
+  summary a {
+            color: var(--regal-blue); /* Inherit the summary color */
+            text-decoration: none; /* Remove underline by default */
+            font-weight: bold; /* Keep it bold */
+            /* Removed display: block; from here as summary itself is flex */
+  }   
+
+  summary a:hover {
+            text-decoration: underline; /* Add underline on hover */
+   }
 
   p, ul {
     margin-top: 0.5rem;
